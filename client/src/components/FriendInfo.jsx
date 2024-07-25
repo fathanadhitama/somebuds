@@ -36,7 +36,6 @@ const FriendInfo = ({friendId, name, subtitle, picturePath}) => {
                 <Box
                 onClick={() => {
                     navigate(`/profile/${friendId}`);
-                    navigate(0); //refresh the page
                 }}
                 p="0 1rem">
                     <Typography

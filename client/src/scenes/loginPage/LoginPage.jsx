@@ -6,8 +6,8 @@ function LoginPage() {
   const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
 
   return (
-    <Box> 
-      <Box
+    <Box sx={{display:'flex', justifyContent: 'center', alignItems:'center', minHeight:'100dvh'}}> 
+      {/* <Box
         width="100%"
         backgroundColor="#B3001B"
         p="1rem 6%"
@@ -22,17 +22,23 @@ function LoginPage() {
           fontSize="32px">
           SomeBuds
         </Typography>
-      </Box>
+      </Box> */}
 
       <Box
       width={isNonMobileScreens? "50%" : "93%"}
       p="2rem"
-      margin="2rem auto"
-      border="2px solid #B3001B"
+      margin="auto"
+      // border="2px solid #B3001B"
       borderRadius="1.5rem"
       backgroundColor="white"
-      boxShadow="0 0 20px 1px black"
+      boxShadow="0 0 100px 1px #B3001B"
       boxSizing="border-box">
+        <Typography textAlign={'center'} color={'#B3001B'} fontSize={40} fontWeight={'bold'}>
+          Somebuds
+        </Typography>
+        <Typography textAlign={'center'} color={'#B3001B'} fontSize={20} mb={3}>
+          Welcome Back
+        </Typography>
         <Form/>
       </Box>
     </Box>

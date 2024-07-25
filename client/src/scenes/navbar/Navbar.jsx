@@ -34,6 +34,7 @@ function Navbar() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((state) => state.user)
+  const theme = useSelector((state) => state.mode)
   const isNonMobile = useMediaQuery("(min-width: 1000px)");
   const fullName = `${user.firstName} ${user.lastName}`;
 
@@ -66,8 +67,12 @@ function Navbar() {
       {/* DESKTOP */}
       {isNonMobile ? (
         <FlexBetween gap="2rem">
-          <IconButton>
-            <LightMode sx={{fontSize:"25px", color:"white"}}/>
+          <IconButton onClick={() => dispatch(setMode())}>
+            {theme === 'light' ?
+             <LightMode sx={{fontSize:"25px", color:"white"}}/>
+             : 
+             <DarkMode sx={{fontSize:"25px", color:"white"}}/>
+             }
           </IconButton>
           <Message sx={{fontSize:"25px"}}/>
           <Notifications sx={{fontSize:"25px"}}/>

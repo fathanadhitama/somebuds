@@ -10,27 +10,41 @@ const PostsWidget = ({ userId, isProfile = false }) => {
     const token = useSelector((state) => state.token);
 
     const getPosts = async () => {
-        const response = await fetch(
-                `http://localhost:3001/posts`,
-                {
-                    method: "GET",
-                    headers:{Authorization: `Bearer ${token}`}
-                }
-            )
-        const data = await response.json()
-        dispatch(setPosts({posts: data}))
+        try {
+            const response = await fetch(
+                    `http://localhost:3001/posts`,
+                    {
+                        method: "GET",
+                        headers:{Authorization: `Bearer ${token}`}
+                    }
+                )
+            const data = await response.json()
+            if (data.error) {
+                throw new Error("JWT Malformed")
+            }
+            dispatch(setPosts({posts: data}))
+        } catch (error) {
+            console.error(error)
+        }
     }
 
     const getUserPosts = async () => {
-        const response = await fetch(
-            `http://localhost:3001/posts/${userId}/posts`,
-            {
-                method: "GET",
-                headers:{Authorization: `Bearer ${token}`} 
+        try {
+            const response = await fetch(
+                `http://localhost:3001/posts/${userId}/posts`,
+                {
+                    method: "GET",
+                    headers:{Authorization: `Bearer ${token}`} 
+                }
+            )
+            const data = await response.json();
+            if (data.error) {
+                throw new Error("JWT Malformed")
             }
-        )
-        const data = await response.json();
-        dispatch(setPosts({posts: data}))
+            dispatch(setPosts({posts: data}))
+        } catch (error) {
+            console.error(error)
+        }
     }
 
     useEffect(() => {

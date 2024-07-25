@@ -44,7 +44,7 @@ function ProfilePage() {
       justifyContent="center"
       >
         {isNonMobile && (<Box flexBasis={isNonMobile ? "26%" : undefined}>
-          <Box sx={{position: "sticky", top:"1rem"}}>
+          <Box sx={{position: "sticky", top:"6rem"}}>
             <UserWidget userId={userId} picturePath={user.picturePath} isProfile={true}/>
             <Box m="2rem 0"></Box>
             <FriendlistWidget userId={userId}/>
@@ -52,10 +52,9 @@ function ProfilePage() {
         </Box>)}
         <Box flexBasis={isNonMobile ? "42%" : undefined}
         mt={isNonMobile ? undefined : "2rem"}
-        sx={{border:"2.5px solid red", borderRadius:"0.5rem"}}
         >
             <Box sx={{backgroundColor:"rgba(255, 255, 255, 0.6)", backdropFilter:"blur(5px)",
-                      position:"sticky", top:"0px"}}>
+                      position:"sticky", top:"5rem", zIndex:2}}>
               <Typography fontWeight="600" variant='h5' p="1rem">{user.firstName}'s Posts</Typography>
             </Box>
             <PostsWidget userId={userId} isProfile/>

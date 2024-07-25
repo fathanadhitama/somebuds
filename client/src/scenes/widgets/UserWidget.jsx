@@ -72,7 +72,7 @@ const UserWidget = ({userId, picturePath, isProfile=false}) => {
                         <Typography color={medium}>{friends.length} friends</Typography>
                     </Box>
                 </FlexBetween>
-                    <ManageAccountsOutlined/>
+                {!isProfile && <ManageAccountsOutlined/>}
             </FlexBetween>
                 
             <Divider/>

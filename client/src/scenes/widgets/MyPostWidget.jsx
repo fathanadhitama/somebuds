@@ -22,7 +22,7 @@ const MyPostWidget = ({ picturePath }) => {
     const [image, setImage] = useState(null)
     const [post, setPost] = useState("")
     const { _id } = useSelector((state) => state.user)
-    const { token } = useSelector((state) => state.token)
+    const token = useSelector((state) => state.token)
     const isNonMobile = useMediaQuery("(min-width:1000px)")
     const dark = "black"
     const medium = "#3b3b3b"
