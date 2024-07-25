@@ -7,15 +7,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { setLogout } from "../../state";
+import { useTheme } from "@emotion/react";
 
 const UserWidget = ({userId, picturePath, isProfile=false}) => {
     const [user, setUser] = useState(null);
     const token = useSelector((state) => state.token)
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const dark = "black"
-    const medium = "#3b3b3b"
-    const hover = "#292929"
+    const { palette } = useTheme()
+    const dark = palette.neutral.dark
+    const medium = palette.neutral.medium
+    const hover = palette.background.default
+    const main = palette.neutral.main
 
     const getUser = async () => {
         const response = await fetch(
@@ -53,7 +56,6 @@ const UserWidget = ({userId, picturePath, isProfile=false}) => {
                 mb="10px"
                 onClick={() => navigate(`/profile/${userId}`)}
                 borderRadius="1rem"
-                sx={{"&:hover": {cursor: "pointer",backgroundColor:"lightgray"}}}
             >
                 <FlexBetween gap="1rem">
                     <UserImage image={picturePath}/>
@@ -62,10 +64,10 @@ const UserWidget = ({userId, picturePath, isProfile=false}) => {
                         color={dark}
                         fontWeight="600"
                         sx={{
-                            "$:hover": {
-                                color:hover,
-                                cursor:"pointer"
-                            }
+                            "&:hover": {
+                                color: palette.primary.dark,
+                                cursor: "pointer",
+                            },
                         }}>
                             {firstName} {lastName}
                         </Typography>

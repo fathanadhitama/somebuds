@@ -53,7 +53,7 @@ function ProfilePage() {
         <Box flexBasis={isNonMobile ? "42%" : undefined}
         mt={isNonMobile ? undefined : "2rem"}
         >
-            <Box sx={{backgroundColor:"rgba(255, 255, 255, 0.6)", backdropFilter:"blur(5px)",
+            <Box sx={{backdropFilter:"blur(5px)",
                       position:"sticky", top:"5rem", zIndex:2}}>
               <Typography fontWeight="600" variant='h5' p="1rem">{user.firstName}'s Posts</Typography>
             </Box>

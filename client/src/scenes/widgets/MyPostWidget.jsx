@@ -15,6 +15,7 @@ import WidgetWrapper from "../../components/WidgetWrapper"
 import { useState } from "react"
 import { useDispatch,useSelector } from "react-redux"
 import { setPosts } from "../../state"
+import { useTheme } from "@emotion/react"
 
 const MyPostWidget = ({ picturePath }) => {
     const dispatch = useDispatch();
@@ -24,9 +25,8 @@ const MyPostWidget = ({ picturePath }) => {
     const { _id } = useSelector((state) => state.user)
     const token = useSelector((state) => state.token)
     const isNonMobile = useMediaQuery("(min-width:1000px)")
-    const dark = "black"
-    const medium = "#3b3b3b"
-    const hover = "#292929"
+    const { palette } = useTheme()
+    const medium = palette.neutral.medium
 
     const handlePost = async () => {
         const formData = new FormData();
@@ -64,7 +64,7 @@ const MyPostWidget = ({ picturePath }) => {
                 sx={{
                     width:"100%",
                     p:"1rem 2rem",
-                    backgroundColor: "lightgray",
+                    backgroundColor: palette.neutral.light,
                     borderRadius: "1rem"
                 }}/>
             </FlexBetween>
@@ -72,7 +72,8 @@ const MyPostWidget = ({ picturePath }) => {
             p="1rem"
             mt="1rem"
             borderRadius="5px"
-            border="1px solid #B3001B"
+            border="1px solid"
+            borderColor={palette.primary.main}
             >
                 <Dropzone
                 acceptedFiles=".jpg, .jpeg, .png"
@@ -85,7 +86,8 @@ const MyPostWidget = ({ picturePath }) => {
                         <FlexBetween>         
                             <Box
                             {...getRootProps()}
-                            border="2px dashed #B3001B"
+                            border="2px dashed"
+                            borderColor={palette.primary.main}
                             p="1rem"
                             width="100%"
                             sx={{ "&:hover": { cursor: "pointer"}}}>
@@ -118,11 +120,11 @@ const MyPostWidget = ({ picturePath }) => {
                 <FlexBetween
                 p="0.5rem"
                 borderRadius="1rem"
-                sx={{"&:hover": {cursor: "pointer",backgroundColor:"lightgray"}}}
+                sx={{"&:hover": {cursor: "pointer",backgroundColor:palette.neutral.light}}}
                 onClick={() => setIsImage(!isImage)}
                 >
                     <ImageOutlined/>
-                    <Typography p="0 0.2rem" color={dark}>
+                    <Typography p="0 0.2rem">
                         Image
                     </Typography>
                 </FlexBetween>
@@ -132,27 +134,27 @@ const MyPostWidget = ({ picturePath }) => {
                     <FlexBetween
                     p="0.5rem"
                     borderRadius="1rem"
-                    sx={{"&:hover": {cursor: "pointer",backgroundColor:"lightgray"}}}>
+                    sx={{"&:hover": {cursor: "pointer",backgroundColor:palette.neutral.light}}}>
                         <GifBoxOutlined/>
-                        <Typography p="0 0.2rem" color={dark}>
+                        <Typography p="0 0.2rem">
                             Clip
                         </Typography>
                     </FlexBetween>
                     <FlexBetween
                     p="0.5rem"
                     borderRadius="1rem"
-                    sx={{"&:hover": {cursor: "pointer",backgroundColor:"lightgray"}}}>
+                    sx={{"&:hover": {cursor: "pointer",backgroundColor:palette.neutral.light}}}>
                         <AttachFileOutlined/>
-                        <Typography p="0 0.2rem" color={dark}>
+                        <Typography p="0 0.2rem">
                             Attachment
                         </Typography>
                     </FlexBetween>
                     <FlexBetween
                     p="0.5rem"
                     borderRadius="1rem"
-                    sx={{"&:hover": {cursor: "pointer",backgroundColor:"lightgray"}}}>
+                    sx={{"&:hover": {cursor: "pointer",backgroundColor:palette.neutral.light}}}>
                         <MicOutlined/>
-                        <Typography p="0 0.2rem" color={dark}>
+                        <Typography p="0 0.2rem">
                             Audio
                         </Typography>
                     </FlexBetween>
@@ -161,7 +163,7 @@ const MyPostWidget = ({ picturePath }) => {
                     <FlexBetween
                     p="0.5rem"
                     borderRadius="1rem"
-                    sx={{"&:hover": {cursor: "pointer",backgroundColor:"lightgray"}}}>
+                    sx={{"&:hover": {cursor: "pointer",backgroundColor:palette.neutral.light}}}>
                         <MoreHorizOutlined sx={{color: medium}}/>
                     </FlexBetween>
                 )}
@@ -171,7 +173,7 @@ const MyPostWidget = ({ picturePath }) => {
                 onClick={handlePost}
                 sx={{
                     p: "0.5rem",
-                    backgroundColor: "#B3001B",
+                    backgroundColor: palette.primary.main,
                     color: "white",
                     "&:hover": {backgroundColor: "#B3001B", boxShadow:"0px 0px 5px 1px black"},
                     borderRadius:"2rem"

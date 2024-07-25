@@ -16,17 +16,17 @@ export const colorTokens = {
         1000: "#000000",
     },
     primary: {
-        50: "#E6FBFF",
-        100: "#CCF7FE",
-        200: "#99EEFD",
-        300: "#66E6FC",
-        400: "#33DDFB",
-        500: "#00D5FA",
-        600: "#00A0BC",
-        700: "#006B7D",
-        800: "#00353F",
-        900: "#001519",
-    },
+        50: "#FFE6EA",   // warna sangat terang
+        100: "#FFCCD5",  // warna lebih terang
+        200: "#FF99AC",  // warna terang
+        300: "#FF6682",  // warna sedikit terang
+        400: "#FF3359",  // warna hampir tengah
+        500: "#B3001B",  // warna utama
+        600: "#8A0015",  // warna sedikit lebih gelap
+        700: "#610010",  // warna lebih gelap
+        800: "#38000A",  // warna sangat gelap
+        900: "#1A0005",  // warna paling gelap
+    }    
 };
 
     // mui theme settings

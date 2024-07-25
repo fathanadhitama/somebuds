@@ -1,10 +1,11 @@
 import { Box } from "@mui/material";
 import {styled} from "@mui/system"
 
-const WidgetWrapper= styled(Box)(() => ({
+const WidgetWrapper= styled(Box)(({theme}) => ({
     padding: "1.5rem 1.5rem 0.75rem 1.5rem",
     borderRadius: "0.75rem",
-    backgroundColor: "#white",
-    border: "2px solid #B3001B"
+    backgroundColor: theme.palette.background.alt,
+    border: "2px solid",
+    borderColor: theme.palette.primary.main
 }))
 export default WidgetWrapper;

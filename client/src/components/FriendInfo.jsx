@@ -5,6 +5,7 @@ import { PersonAddRounded, PersonRemoveRounded } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
 import { setFriends } from "../state";
 import { useNavigate } from "react-router-dom";
+import { useTheme } from "@emotion/react";
 
 const FriendInfo = ({friendId, name, subtitle, picturePath}) => {
     const dispatch = useDispatch();
@@ -13,6 +14,7 @@ const FriendInfo = ({friendId, name, subtitle, picturePath}) => {
     const token = useSelector((state) => state.token)
     const friends = useSelector((state) => state.user.friends)
     const isFriend = friends.find((friend) => friend._id === friendId);
+    const { palette } = useTheme()
     
     const patchFriend = async () => {
         const response = await fetch(
@@ -49,7 +51,7 @@ const FriendInfo = ({friendId, name, subtitle, picturePath}) => {
             : (<IconButton
             borderRadius="50%"
             sx={{
-                "&:hover":{cursor:"pointer", backgroundColor:"#c41832", color:"white"}
+                "&:hover":{cursor:"pointer", backgroundColor:palette.primary.main, color:"white"}
             }}
             onClick={() => {
                 patchFriend();
