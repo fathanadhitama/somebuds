@@ -22,7 +22,7 @@ const UserWidget = ({userId, picturePath, isProfile=false}) => {
 
     const getUser = async () => {
         const response = await fetch(
-            `http://localhost:3001/users/${userId}`,
+            `${process.env.REACT_APP_API_URL}/users/${userId}`,
             {
                 method: "GET",
                 headers: {Authorization: `Bearer ${token}`}

@@ -38,7 +38,7 @@ const MyPostWidget = ({ picturePath }) => {
         }
 
         const response = await fetch(
-                "http://localhost:3001/posts",
+                `${process.env.REACT_APP_API_URL}/posts`,
                 {
                     method:"POST",
                     headers: { Authorization: `Bearer ${token}`},

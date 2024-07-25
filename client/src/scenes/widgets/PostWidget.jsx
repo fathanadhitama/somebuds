@@ -38,7 +38,7 @@ const PostWidget = ({
 
     const patchLike = async () => {
         const response = await fetch(
-            `http://localhost:3001/posts/${postId}/like`,
+            `${process.env.REACT_APP_API_URL}/posts/${postId}/like`,
             {
                 method: "PATCH",
                 headers:{
@@ -67,7 +67,7 @@ const PostWidget = ({
                     height="auto"
                     alt="image"
                     style={{borderRadius:"0.5rem", marginTop: "0.75rem"}}
-                    src={`http://localhost:3001/assets/${picturePath}`}
+                    src={`${process.env.REACT_APP_API_URL}/assets/${picturePath}`}
                 />
             )}
             <FlexBetween mt="0.25rem">
