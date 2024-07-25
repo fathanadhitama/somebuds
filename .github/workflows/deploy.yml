@@ -1,0 +1,36 @@
+name: Deploy to Vercel
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build_and_deploy:
+    permissions: write-all
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Install dependencies
+        run: npm install
+        working-directory: ./client
+
+      - name: Build project
+        run: npm run build
+        working-directory: ./client
+
+      - name: Deploy to Vercel
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          PROJECT_ID: ${{ secrets.PROJECT_ID }}
+          ORG_ID: ${{ secrets.ORG_ID }}
+        run: |
+          npm install -g vercel
+          vercel --prod --token $VERCEL_TOKEN --project $PROJECT_ID --org $ORG_ID
+        working-directory: ./client
+
