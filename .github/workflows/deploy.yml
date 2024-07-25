@@ -26,11 +26,15 @@ jobs:
           cd client
           npm run build
 
-      - name: Deploy to Vercel
+      - name: Install Vercel CLI
         run: |
           cd client
           npm install -g vercel
-          vercel --prod --token ${{ secrets.VERCEL_TOKEN }}
+
+      - name: Deploy to Vercel
+        run: |
+          cd client
+          vercel --prod --token ${{ secrets.VERCEL_TOKEN }} --confirm
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
 
