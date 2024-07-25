@@ -1,6 +1,6 @@
 import WidgetWrapper from "../../components/WidgetWrapper";
 import FlexBetween from "../../components/FlexBetween";
-import { Typography, Box } from "@mui/material";
+import { Typography } from "@mui/material";
 
 const AdvertWidget = () => {
     return (

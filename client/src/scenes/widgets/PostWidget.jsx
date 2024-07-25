@@ -65,7 +65,7 @@ const PostWidget = ({
                 <img 
                     width="100%"
                     height="auto"
-                    alt="image"
+                    alt="posted"
                     style={{borderRadius:"0.5rem", marginTop: "0.75rem"}}
                     src={`${process.env.REACT_APP_API_URL}/assets/${picturePath}`}
                 />

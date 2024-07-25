@@ -1,24 +1,20 @@
 import { Box, Typography, Divider } from "@mui/material";
-import {EditOutlined, LocationOnOutlined,WorkOutlineOutlined, ManageAccountsOutlined, ExitToApp} from "@mui/icons-material"
+import {EditOutlined, LocationOnOutlined,WorkOutlineOutlined, ManageAccountsOutlined } from "@mui/icons-material"
 import UserImage from "../../components/UserImage";
 import FlexBetween from "../../components/FlexBetween";
 import WidgetWrapper from "../../components/WidgetWrapper";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { setLogout } from "../../state";
 import { useTheme } from "@emotion/react";
 
 const UserWidget = ({userId, picturePath, isProfile=false}) => {
     const [user, setUser] = useState(null);
     const token = useSelector((state) => state.token)
     const navigate = useNavigate();
-    const dispatch = useDispatch();
     const { palette } = useTheme()
     const dark = palette.neutral.dark
     const medium = palette.neutral.medium
-    const hover = palette.background.default
-    const main = palette.neutral.main
 
     const getUser = async () => {
         const response = await fetch(
@@ -34,6 +30,7 @@ const UserWidget = ({userId, picturePath, isProfile=false}) => {
 
     useEffect(() => {
         getUser();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     if(!user) return null;

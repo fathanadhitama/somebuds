@@ -40,8 +40,6 @@ function Navbar() {
   const neutralLight = theme.palette.neutral.light;
   const dark = theme.palette.neutral.dark;
   const medium = theme.palette.neutral.medium;
-  const mediumMain = theme.palette.neutral.mediumMain;
-  const background = theme.palette.background.default;
   const alt = theme.palette.background.alt;
   const primaryLight = theme.palette.primary.light;
   const main = theme.palette.primary.main

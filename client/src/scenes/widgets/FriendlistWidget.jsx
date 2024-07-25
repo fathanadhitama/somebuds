@@ -1,5 +1,4 @@
 import WidgetWrapper from "../../components/WidgetWrapper";
-import FlexBetween from "../../components/FlexBetween";
 import { Typography, Box } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
 import FriendInfo from "../../components/FriendInfo";
@@ -26,6 +25,7 @@ const FriendlistWidget = ({userId}) => {
 
     useEffect(() => {
         getFriends()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (
