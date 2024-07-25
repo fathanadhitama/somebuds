@@ -34,19 +34,25 @@ function Navbar() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((state) => state.user)
-  const theme = useSelector((state) => state.mode)
+  const theme = useTheme()
   const isNonMobile = useMediaQuery("(min-width: 1000px)");
   const fullName = `${user.firstName} ${user.lastName}`;
+  const neutralLight = theme.palette.neutral.light;
+  const dark = theme.palette.neutral.dark;
+  const background = theme.palette.background.default;
+  const alt = theme.palette.background.alt;
+  const primaryLight = theme.palette.primary.light;
 
   return (
-    <FlexBetween padding="1rem 6%" backgroundColor="#B3001B" color="white" borderRadius="0 0 0.5rem 0.5rem"
+    <FlexBetween padding="1rem 6%" backgroundColor={alt} color="white" borderRadius="0 0 0.5rem 0.5rem"
     sx={{position:"sticky", top:"0", zIndex:"99"}}>
       <FlexBetween gap="1.75rem">
         <Typography
         onClick={() => navigate('/home')}
+        color={'primary'}
         fontSize="2rem"
         fontWeight='bold'
-        sx={{"&:hover": {cursor: 'pointer'}}}
+        sx={{"&:hover": {cursor: 'pointer', color: primaryLight}}}
         >
           SomeBuds
         </Typography>
