@@ -24,9 +24,11 @@ const __dirname = path.dirname(__filename);
 dotenv.config();
 const app = express(); //we don't need require because we use "type" : "module" in package.json
 const corsOptions = {
-    origin: 'http://localhost:3000',
-    
-  };
+    origin: ['http://localhost:3000',
+        'https://somebuds-1d91ezk41-fathans-projects-a5f7abf2.vercel.app/',
+        'https://somebuds.vercel.app/',
+    ],
+};
 app.use(express.json());
 app.use(helmet());
 app.use(helmet.crossOriginResourcePolicy({policy : "cross-origin"}));
