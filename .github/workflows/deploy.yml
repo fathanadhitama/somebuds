@@ -34,7 +34,7 @@ jobs:
       - name: Deploy to Vercel
         run: |
           cd client
-          vercel --prod --token ${{ secrets.VERCEL_TOKEN }} --confirm
+          vercel --prod --token ${{ secrets.VERCEL_TOKEN }} --yes
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
 
